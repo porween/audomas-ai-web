@@ -1,8 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations, useLocale } from "next-intl";
+import { usePathname, useRouter } from "@/navigation";
 
 export function StatusPanel() {
+  const t = useTranslations('Hero'); // Using Hero namespace for general status labels if available
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleLanguageChange = (newLocale: 'en' | 'th') => {
+    router.replace(pathname, { locale: newLocale });
+  };
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -35,6 +45,21 @@ export function StatusPanel() {
             className="h-full bg-gradient-to-r from-cyan-600 to-cyan-300 shadow-[0_0_10px_rgba(34,211,238,0.8)]"
           />
         </div>
+      </div>
+
+      <div className="pt-4 border-t border-slate-800 flex items-center justify-center gap-3">
+        <button 
+          onClick={() => handleLanguageChange('th')}
+          className={`px-3 py-1 rounded-md text-[10px] font-black transition-all ${locale === 'th' ? 'bg-cyan-500 text-black shadow-[0_0_10px_rgba(34,211,238,0.5)]' : 'bg-slate-800 text-slate-400 hover:text-white'}`}
+        >
+          TH
+        </button>
+        <button 
+          onClick={() => handleLanguageChange('en')}
+          className={`px-3 py-1 rounded-md text-[10px] font-black transition-all ${locale === 'en' ? 'bg-cyan-500 text-black shadow-[0_0_10px_rgba(34,211,238,0.5)]' : 'bg-slate-800 text-slate-400 hover:text-white'}`}
+        >
+          EN
+        </button>
       </div>
     </motion.div>
   );
