@@ -240,7 +240,7 @@ function ChatBubble({ event, isUser }: { event: SessionEvent; isUser: boolean })
     >
       <div
         className={[
-          "min-h-[48px] w-[min(100%,min(92vw,440px))] max-w-full rounded-[1.25rem] px-4 py-3 shadow-sm backdrop-blur-md border transition-[background-color,border-color,box-shadow] duration-500 [overflow-wrap:anywhere] break-words",
+          "min-h-[48px] w-[min(100%,min(92vw,440px))] max-w-full rounded-[1.25rem] px-5 py-4 shadow-sm backdrop-blur-md border transition-[background-color,border-color,box-shadow] duration-500 [overflow-wrap:anywhere] break-words",
           isUser
             ? "border-[#05b34c]/30 bg-[#06C755] text-white shadow-[0_2px_10px_rgba(6,199,85,0.28)]"
             : system
@@ -1149,7 +1149,7 @@ export function SalesAgentHeroSection() {
                   animate={{ opacity: [1, 0.35, 1], scale: [1, 1.2, 1] }}
                   transition={{ duration: 1.25, repeat: Infinity, ease: "easeInOut" }}
                 />
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#39FF14]">{t("rcc_live")}</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#39FF14]">REAL-TIME DATA</span>
               </div>
 
               <div className="relative z-10 mb-5 pr-24 text-left">
@@ -1166,7 +1166,20 @@ export function SalesAgentHeroSection() {
               </div>
 
               <div className="relative z-10">
-                <div className="flex flex-wrap items-end gap-2">
+                {/* SVG Sparkline Graph */}
+                <div className="absolute -inset-x-4 -top-8 -bottom-4 z-0 opacity-40 pointer-events-none">
+                  <svg viewBox="0 0 100 30" preserveAspectRatio="none" className="w-full h-full">
+                    <path d="M0,25 C10,20 15,28 25,18 C35,8 40,22 50,15 C60,8 65,18 75,10 C85,2 95,12 100,5" fill="none" stroke="rgba(57,255,20,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M0,25 C10,20 15,28 25,18 C35,8 40,22 50,15 C60,8 65,18 75,10 C85,2 95,12 100,5 L100,30 L0,30 Z" fill="url(#sparklineGrad)" />
+                    <defs>
+                      <linearGradient id="sparklineGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="rgba(57,255,20,0.15)" />
+                        <stop offset="100%" stopColor="rgba(57,255,20,0)" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div className="flex flex-wrap items-end gap-2 relative z-10">
                   <motion.p
                     className={cn(
                       revenueMono.className,

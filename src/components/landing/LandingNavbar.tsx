@@ -50,7 +50,7 @@ export function LandingNavbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0b1220]/80 backdrop-blur-xl border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#020617]/80 backdrop-blur-[15px] border-b border-white/[0.08] transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[76px]">
           
@@ -70,12 +70,17 @@ export function LandingNavbar() {
               <AudomasLogo size={38} animated={true} />
               <div className="absolute inset-0 rounded-full blur-[15px] bg-blue-400/0 group-hover:bg-blue-400/40 transition-all duration-700 scale-150" />
             </div>
-            <span
-              className="select-none text-xl font-bold tracking-tight text-sky-300"
-              style={{ filter: "drop-shadow(0 0 10px rgba(56, 189, 248, 0.2))" }}
-            >
-              Audomas
-            </span>
+            <div className="flex flex-col">
+              <span
+                className="select-none text-xl font-bold tracking-tight text-sky-300 leading-none"
+                style={{ filter: "drop-shadow(0 0 10px rgba(56, 189, 248, 0.2))" }}
+              >
+                Audomas
+              </span>
+              <span className="select-none text-[8px] font-semibold uppercase tracking-widest text-slate-500 mt-0.5">
+                An Audomas Company
+              </span>
+            </div>
           </Link>
 
           {/* Center: Menu */}
@@ -138,39 +143,25 @@ export function LandingNavbar() {
 
           {/* Right: Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <div className="flex items-center bg-white/5 rounded-full p-1 border border-white/10 mr-2">
-              <button 
-                onClick={() => handleLanguageChange('th')}
-                className={`px-2.5 py-1 text-[10px] font-bold rounded-full transition-all ${locale === 'th' ? 'bg-blue-600 text-white shadow-[0_0_10px_rgba(37,99,235,0.4)]' : 'text-slate-400 hover:text-white'}`}
-              >
-                TH
-              </button>
-              <button 
-                onClick={() => handleLanguageChange('en')}
-                className={`px-2.5 py-1 text-[10px] font-bold rounded-full transition-all ${locale === 'en' ? 'bg-blue-600 text-white shadow-[0_0_10px_rgba(37,99,235,0.4)]' : 'text-slate-400 hover:text-white'}`}
-              >
-                EN
-              </button>
+            <Link href="#ir" className="text-[12px] font-semibold text-slate-400 hover:text-white transition-colors">
+              IR
+            </Link>
+            <button className="text-slate-400 hover:text-white transition-colors">
+              <Search className="w-4 h-4" />
+            </button>
+            <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-wider text-slate-500 mx-2">
+              <button onClick={() => handleLanguageChange('th')} className={locale === 'th' ? 'text-white' : 'hover:text-slate-300 transition-colors'}>TH</button>
+              <span>|</span>
+              <button onClick={() => handleLanguageChange('en')} className={locale === 'en' ? 'text-white' : 'hover:text-slate-300 transition-colors'}>EN</button>
             </div>
-
             <Link
               href="/dashboard"
               className="text-[13px] font-bold text-slate-400 hover:text-white transition-colors px-2"
             >
               {t('Navbar.login')}
             </Link>
-
-            <Link
-              href="#live-demo"
-              className="group flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800/40 px-5 py-2.5 text-[13px] font-bold text-slate-200 shadow-[0_4px_14px_-4px_rgba(0,0,0,0.35)] transition-colors hover:border-slate-600 hover:bg-slate-800"
-            >
-              <Play className="h-3.5 w-3.5 text-blue-400 transition-transform group-hover:scale-110" />
-              {t('Navbar.see_demo')}
-            </Link>
-
-            <Link href="#pricing" className="btn-audomas-nav">
-              <Zap className="w-3.5 h-3.5 fill-current" />
-              {t('Navbar.try_free')}
+            <Link href="#demo" className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#06C755] px-5 py-2.5 text-[13px] font-bold text-white transition-all hover:bg-[#05b34c] shadow-[0_0_15px_rgba(6,199,85,0.4)] hover:shadow-[0_0_25px_rgba(6,199,85,0.6)]">
+              Book a Demo
             </Link>
           </div>
 
