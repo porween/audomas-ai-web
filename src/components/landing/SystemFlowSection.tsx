@@ -82,8 +82,9 @@ export function SystemFlowSection() {
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
             {t('badge')}
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            {t('title_part1')}<span className="bg-[linear-gradient(90deg,#22D3EE,#60A5FA)] bg-clip-text text-transparent">{t('title_part2')}</span>
+          <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+            {t("title_part1")}
+            <span className="guardian-text">{t("title_part2")}</span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-base md:text-lg">
             {t('subtitle')}

@@ -27,21 +27,15 @@ export function SalesFinalCtaSection() {
             {t('subtitle')}
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-8">
-            <Link 
-              href="#live-demo"
-              className="w-full sm:w-auto px-10 py-5 bg-[linear-gradient(90deg,#2563EB,#06B6D4)] hover:brightness-110 text-white rounded-2xl font-black text-lg flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] shadow-[0_20px_40px_rgba(37,99,235,0.3)] group"
-            >
-              <Play className="w-6 h-6 fill-white" />
-              {t('cta_demo')}
+          <div className="flex flex-col items-center justify-center gap-4 pt-8 sm:flex-row sm:gap-5">
+            <Link href="#live-demo" className="btn-audomas-primary-lg group w-full sm:w-auto">
+              <Play className="h-6 w-6 fill-white" />
+              {t("cta_demo")}
             </Link>
-            <Link 
-              href="#pricing"
-              className="w-full sm:w-auto px-10 py-5 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white border-2 border-white/10 rounded-2xl font-black text-lg flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] group"
-            >
-              <Zap className="w-6 h-6 text-cyan-400" />
-              {t('cta_try')}
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            <Link href="#pricing" className="btn-audomas-secondary-lg group w-full sm:w-auto">
+              <Zap className="h-6 w-6 text-sky-400" />
+              {t("cta_try")}
+              <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 

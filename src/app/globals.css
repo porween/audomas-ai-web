@@ -7,8 +7,8 @@
   --color-brand-neon: #0FF;
   --color-brand-violet: #7C3AED;
 
-  /* ── Base ── */
-  --color-background: #020D1A;
+  /* ── Base (Midnight Blue) ── */
+  --color-background: #020617;
   --color-foreground: #F0F6FF;
 
   /* ── Typography ── */
@@ -113,7 +113,7 @@
   }
 
   body {
-    @apply bg-[#020D1A] text-slate-50;
+    @apply bg-[#020617] text-slate-50;
     font-family: var(--font-sans);
   }
 
@@ -163,4 +163,186 @@
   .bg-deep-blue {
     background: linear-gradient(135deg, #002147 0%, #001530 50%, #020D1A 100%);
   }
+
+  .enterprise-scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .enterprise-scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Live demo section — animated running gradients per industry */
+  @keyframes live-demo-gradient-run {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .live-demo-bg-clinic {
+    background: linear-gradient(
+      125deg,
+      #0f766e,
+      #14b8a6,
+      #22d3ee,
+      #7dd3fc,
+      #99f6e4,
+      #0e7490,
+      #2dd4bf
+    );
+    background-size: 400% 400%;
+    animation: live-demo-gradient-run 14s ease-in-out infinite;
+  }
+
+  .live-demo-bg-car {
+    background: linear-gradient(
+      125deg,
+      #020617,
+      #0f172a,
+      #1e293b,
+      #334155,
+      #475569,
+      #1e3a8a,
+      #0c1929
+    );
+    background-size: 400% 400%;
+    animation: live-demo-gradient-run 16s ease-in-out infinite;
+  }
+
+  .live-demo-bg-sme {
+    background: linear-gradient(
+      125deg,
+      #c2410c,
+      #ea580c,
+      #f97316,
+      #a855f7,
+      #7c3aed,
+      #db2777,
+      #ea580c
+    );
+    background-size: 400% 400%;
+    animation: live-demo-gradient-run 11s ease-in-out infinite;
+  }
+
+  .live-demo-bg-enterprise {
+    background: linear-gradient(
+      125deg,
+      #020617,
+      #022c22,
+      #064e3b,
+      #0f172a,
+      #134e4a,
+      #052e16,
+      #00120b
+    );
+    background-size: 400% 400%;
+    animation: live-demo-gradient-run 18s ease-in-out infinite;
+  }
+
+  /* Design refresh — unified media + flat CTAs (semi-rounded, soft shadow) */
+  .audomas-media {
+    @apply overflow-hidden rounded-xl;
+    box-shadow:
+      0 14px 44px -14px rgba(0, 0, 0, 0.55),
+      0 6px 20px -6px rgba(0, 0, 0, 0.32);
+  }
+
+  .btn-audomas-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-sky-600 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-sky-500 active:bg-sky-700;
+    box-shadow: 0 4px 16px -2px rgba(2, 132, 199, 0.45);
+  }
+
+  .btn-audomas-primary-lg {
+    @apply inline-flex items-center justify-center gap-3 rounded-lg bg-sky-600 px-10 py-5 text-lg font-bold text-white transition-colors hover:bg-sky-500 active:bg-sky-700;
+    box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.4);
+  }
+
+  .btn-audomas-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-600/90 bg-slate-900/55 px-6 py-3.5 text-sm font-semibold text-slate-100 backdrop-blur-md transition-colors hover:border-slate-500 hover:bg-slate-800/75;
+    box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.35);
+  }
+
+  .btn-audomas-secondary-lg {
+    @apply inline-flex items-center justify-center gap-3 rounded-lg border-2 border-white/12 bg-white/5 px-10 py-5 text-lg font-bold text-white backdrop-blur-md transition-colors hover:border-white/20 hover:bg-white/10;
+    box-shadow: 0 6px 24px -6px rgba(0, 0, 0, 0.35);
+  }
+
+  .btn-audomas-nav {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-sky-600 px-6 py-2.5 text-[13px] font-bold text-white transition-colors hover:bg-sky-500 active:bg-sky-700;
+    box-shadow: 0 4px 14px -2px rgba(2, 132, 199, 0.4);
+  }
+}
+
+/* Mission Control — “Guardian Blue Sky Move Run” (sky → cyan → white, slow drift + glow) */
+@keyframes move-run {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes guardian-glow-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.45)) drop-shadow(0 0 20px rgba(0, 212, 255, 0.28));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.35)) drop-shadow(0 0 36px rgba(0, 212, 255, 0.42));
+  }
+}
+
+@keyframes guardian-glow-pulse-subtle {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 3px rgba(56, 189, 248, 0.2)) drop-shadow(0 0 10px rgba(0, 212, 255, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.12)) drop-shadow(0 0 18px rgba(0, 212, 255, 0.16));
+  }
+}
+
+/* Guardian Blue Sky Move Run — stops: #00D4FF → #FFFFFF → #38bdf8 (continuous drift) */
+.guardian-text {
+  background: linear-gradient(
+    95deg,
+    #00d4ff 0%,
+    #ffffff 18%,
+    #38bdf8 36%,
+    #00d4ff 52%,
+    #ffffff 68%,
+    #38bdf8 84%,
+    #00d4ff 100%
+  );
+  background-size: 260% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: move-run 16s linear infinite, guardian-glow-pulse 5s ease-in-out infinite;
+}
+
+/* Hero headline — softer motion so body copy stays the focal point */
+.guardian-text.guardian-text--subtle {
+  background-size: 220% auto;
+  animation: move-run 22s linear infinite, guardian-glow-pulse-subtle 6.5s ease-in-out infinite;
+}
+
+/* Enterprise glass — Midnight (#020617) + glassmorphism + soft cyan edge glow */
+.glass-enterprise {
+  @apply border border-white/[0.09] bg-[#020617]/60 backdrop-blur-xl;
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(0, 212, 255, 0.07),
+    0 0 40px rgba(0, 212, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }

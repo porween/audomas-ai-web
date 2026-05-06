@@ -48,7 +48,7 @@ function PricingCard({
     >
       {isRecommended && (
         <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
-           <div className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-[10px] font-black uppercase tracking-[0.2em] px-5 py-2 rounded-full shadow-lg border border-white/20">
+           <div className="rounded-full border border-sky-500/30 bg-sky-600 px-5 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white shadow-[0_4px_16px_-2px_rgba(2,132,199,0.45)]">
               {t('recommended')}
            </div>
         </div>
@@ -87,7 +87,7 @@ function PricingCard({
 
            <Link 
             href="#demo"
-            className={`w-full py-4 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${isRecommended ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:scale-[1.03] active:scale-[0.97]" : "bg-white/5 border border-white/10 text-white hover:bg-white/10"}`}
+            className={`flex w-full items-center justify-center gap-2 rounded-lg py-4 text-xs font-black uppercase tracking-widest transition-colors ${isRecommended ? "bg-sky-600 text-white shadow-[0_8px_24px_-4px_rgba(2,132,199,0.4)] hover:bg-sky-500 active:bg-sky-700" : "border border-white/10 bg-white/5 text-white hover:bg-white/10"}`}
            >
               {t('cta')} <ArrowRight className="w-4 h-4" />
            </Link>

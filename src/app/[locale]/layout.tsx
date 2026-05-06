@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Mono } from "next/font/google";
+import { DM_Sans, DM_Mono, Urbanist } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -17,6 +17,13 @@ const dmMono = DM_Mono({
   variable: "--font-dm-mono",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  display: "swap",
+});
+
+const urbanist = Urbanist({
+  variable: "--font-urbanist",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -43,7 +50,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${dmSans.variable} ${dmMono.variable} antialiased dark`}
+      className={`${dmSans.variable} ${dmMono.variable} ${urbanist.variable} antialiased dark`}
     >
       <body className="bg-[#020D1A] text-slate-50 min-h-screen flex flex-col font-sans selection:bg-cyan-500/30">
         <NextIntlClientProvider messages={messages}>

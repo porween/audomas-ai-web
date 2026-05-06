@@ -276,21 +276,20 @@ export function SalesUseCaseSection() {
             {t('killer_line')}
           </h3>
           
-          <div className="flex flex-col sm:flex-row items-center gap-6 justify-center">
-            <Link 
-              href="#live-demo" 
-              className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-black text-[12px] uppercase tracking-[0.2em] shadow-[0_20px_40px_rgba(37,99,235,0.3)] transition-all hover:scale-105 hover:shadow-[0_25px_50px_rgba(37,99,235,0.4)] active:scale-95 flex items-center gap-3 overflow-hidden"
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+            <Link
+              href="#live-demo"
+              className="btn-audomas-primary-lg !text-[12px] font-black uppercase tracking-[0.2em]"
             >
-              <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <Zap className="w-4 h-4 text-cyan-300 relative z-10" /> 
-              <span className="relative z-10">{t('cta_action')}</span>
+              <Zap className="h-4 w-4 text-sky-100" />
+              {t("cta_action")}
             </Link>
-            <Link 
-              href="#pricing" 
-              className="group px-10 py-5 bg-[#0F172A]/80 backdrop-blur-xl hover:bg-[#1E293B] text-white border border-white/10 rounded-full font-black text-[12px] uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 flex items-center gap-3 shadow-2xl"
+            <Link
+              href="#pricing"
+              className="btn-audomas-secondary-lg group !text-[12px] font-black uppercase tracking-[0.2em]"
             >
-              {t('cta_pricing', { defaultValue: 'View Pricing' })} 
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+              {t("cta_pricing", { defaultValue: "View Pricing" })}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
             </Link>
           </div>
 

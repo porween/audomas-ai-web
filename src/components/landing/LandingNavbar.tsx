@@ -26,7 +26,7 @@ export function LandingNavbar() {
     { name: t('Navbar.how_it_works'), href: "#how-it-works" },
     { name: t('Navbar.solutions'), href: "#solutions" },
     { name: t('Navbar.pricing'), href: "#pricing" },
-    { name: t('Navbar.security'), href: "#security" },
+    { name: t('Navbar.security'), href: "/security" },
   ];
 
   const visionSolutions = [
@@ -58,8 +58,10 @@ export function LandingNavbar() {
           <Link 
             href="/" 
             onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              if (pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
               setIsOpen(false);
             }}
             className="flex items-center gap-2.5 group shrink-0 transition-transform duration-500 hover:scale-[1.5] origin-left"
@@ -69,7 +71,7 @@ export function LandingNavbar() {
               <div className="absolute inset-0 rounded-full blur-[15px] bg-blue-400/0 group-hover:bg-blue-400/40 transition-all duration-700 scale-150" />
             </div>
             <span
-              className="font-bold tracking-tight select-none text-xl bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent"
+              className="select-none text-xl font-bold tracking-tight text-sky-300"
               style={{ filter: "drop-shadow(0 0 10px rgba(56, 189, 248, 0.2))" }}
             >
               Audomas
@@ -160,16 +162,13 @@ export function LandingNavbar() {
 
             <Link
               href="#live-demo"
-              className="px-5 py-2.5 rounded-xl border border-slate-700 bg-slate-800/40 text-[13px] font-bold text-slate-200 hover:bg-slate-800 hover:border-slate-600 transition-all flex items-center gap-2 group"
+              className="group flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800/40 px-5 py-2.5 text-[13px] font-bold text-slate-200 shadow-[0_4px_14px_-4px_rgba(0,0,0,0.35)] transition-colors hover:border-slate-600 hover:bg-slate-800"
             >
-              <Play className="w-3.5 h-3.5 text-blue-400 group-hover:scale-110 transition-transform" />
+              <Play className="h-3.5 w-3.5 text-blue-400 transition-transform group-hover:scale-110" />
               {t('Navbar.see_demo')}
             </Link>
 
-            <Link
-              href="#pricing"
-              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-[13px] font-bold text-white shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_8px_30_rgba(37,99,235,0.4)] hover:brightness-110 active:scale-95 transition-all flex items-center gap-2"
-            >
+            <Link href="#pricing" className="btn-audomas-nav">
               <Zap className="w-3.5 h-3.5 fill-current" />
               {t('Navbar.try_free')}
             </Link>
@@ -234,17 +233,17 @@ export function LandingNavbar() {
                 </Link>
                 
                 <div className="grid grid-cols-2 gap-3">
-                  <Link 
+                  <Link
                     href="#live-demo"
-                    className="py-3.5 text-sm font-bold text-slate-200 rounded-xl flex items-center justify-center gap-2 bg-slate-800 border border-slate-700"
+                    className="flex items-center justify-center gap-2 rounded-lg border border-slate-700 bg-slate-800 py-3.5 text-sm font-bold text-slate-200 shadow-[0_4px_14px_-4px_rgba(0,0,0,0.35)]"
                     onClick={() => setIsOpen(false)}
                   >
                     <Play className="w-4 h-4 text-blue-400" />
                     {t('Navbar.see_demo')}
                   </Link>
-                  <Link 
+                  <Link
                     href="#pricing"
-                    className="py-3.5 text-sm font-bold text-white rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 shadow-lg shadow-blue-500/20"
+                    className="btn-audomas-primary py-3.5 text-sm"
                     onClick={() => setIsOpen(false)}
                   >
                     <Zap className="w-4 h-4" />
